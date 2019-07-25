@@ -21,6 +21,7 @@ public class SheduledTasks {
             Process process = builder.start();
         }
 
+        System.out.println("test");
 
     }
 }
