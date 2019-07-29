@@ -16,12 +16,9 @@ public class SheduledTasks {
 
         for (String file : files) {
             System.out.println(file);
-            String comand = String.format("cd \"C:\\My Program Files\\myApp\\wars\" && jar -xvf %s", file);
-            ProcessBuilder builder = new ProcessBuilder("cmd.exe","/c", comand);
-            Process process = builder.start();
-        }
+                    }
 
-        System.out.println("test");
+        System.out.println(".................");
 
     }
 }
