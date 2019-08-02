@@ -25,8 +25,7 @@ public class MockClientApplication {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(MockClientApplication.class, args);
-		SheduledTasks scan = new SheduledTasks();
-		scan.scanFolder();
+
 	}
 	@Bean
 	public EmbeddedServletContainerFactory servletContainerFactory() {
@@ -39,7 +38,9 @@ public class MockClientApplication {
 
 				try {
 					String warPath= environment.getProperty("war.path");
-					Context context = tomcat.addWebapp("/app", warPath);
+					File wars = new File(warPath);
+					String[] warList = wars.list();
+					Context context = tomcat.addWebapp("/app", warPath + warList[0]);
 					context.setParentClassLoader(getClass().getClassLoader());
 				} catch (ServletException ex) {
 					throw new IllegalStateException("Failed to add webapp", ex);
