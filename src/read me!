@@ -1,5 +1,21 @@
-you need do the folder "config" with application.properties wich contain:
+ For run the application you need to do:
+ 
+ 1) run from intellijIdea:
+ war.path=${user.dir}/wars/
+server.tomcat.accesslog.enabled=true
+server.tomcat.accesslog.directory=${user.dir}/../requests
+server.tomcat.accesslog.pattern=%t %a "%r" %s (%D ms)
+
+2) run from cmd:
+Do the folder "config" (in target) with application.properties wich contain:
 war.path=${user.dir}/../wars/
 server.tomcat.accesslog.enabled=true
 server.tomcat.accesslog.directory=${user.dir}/../requests
 server.tomcat.accesslog.pattern=%t %a "%r" %s (%D ms)
+
+3)log4j config
+add config for DEBUG if you need
+logging.file=../logs/mockClientWar.log
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+
