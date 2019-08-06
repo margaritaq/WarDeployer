@@ -1,0 +1,5 @@
+you need do the folder "config" with application.properties wich contain:
+war.path=${user.dir}/../wars/
+server.tomcat.accesslog.enabled=true
+server.tomcat.accesslog.directory=${user.dir}/../requests
+server.tomcat.accesslog.pattern=%t %a "%r" %s (%D ms)
