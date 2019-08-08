@@ -16,6 +16,7 @@ import java.io.File;
 
 
 @Configuration
+
 public class TomcatConfiguration {
     private static final Logger logger = Logger.getLogger(TomcatConfiguration.class);
 
@@ -41,18 +42,28 @@ public class TomcatConfiguration {
                         context.setParentClassLoader(getClass().getClassLoader());
                         logger.info("WE DEPLOY APPLICATION !");
                         logger.info("War: " + warList[i] + " Status: Successfully!");
+                        logger.debug(" DEBUG ");// don't work
+                        logger.trace("TRACE");//don't work
+                        logger.warn("WARN");
+                        logger.error("ERROR");
+                        logger.fatal("FATAL");
+
+
 
                     }
-
+                    logger.debug("Message logged at DEBUG level");
                 } catch (ServletException ex) {
                     throw new IllegalStateException("Failed to add webapp", ex);
                 }
-
+                logger.debug("DEBUG WE DID IT!!!!");
                 return super.getTomcatEmbeddedServletContainer(tomcat);
+
             }
 
         };
+
     }
+
 
 
 }
